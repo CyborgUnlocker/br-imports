@@ -11,3 +11,7 @@ export interface Product {
   stock: number;
   created_at: string;
 }
+
+export interface CartItem extends Product {
+  qty: number;
+}
