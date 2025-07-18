@@ -1,9 +1,9 @@
-import { Product } from '@/types/index';
+import { Product, CartItem } from '@/types/index';
 const CART_KEY = 'brimports_cart';
 
 export function addToCart(product: Product, qty = 1) {
   const cart = getCart();
-  const existing = cart.find(i => i.id === product.id);
+  const existing = cart.find((i: CartItem) => i.id === product.id);
   if (existing) existing.qty += qty;
   else cart.push({ ...product, qty });
   localStorage.setItem(CART_KEY, JSON.stringify(cart));
